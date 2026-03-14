@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { AUTH_URL } from "../types/consts/routing";
+import Button from "../components/Button/Button";
 
 export const Register: React.FC = () => {
     const [name, setName] = useState<string>("");
@@ -25,7 +26,14 @@ export const Register: React.FC = () => {
             <input type="text" placeholder=" Введите имя" value={name} onChange={(e) => setName(e.target.value)} required></input>
             <input type="email" placeholder="Введите почту" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
             <input type="passwor" placeholder="Введите пароль" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
-            <button type="submit">Зарегистрироваться</button>
+            <Button
+                    type="submit"
+                    size="medium"
+                    variant="primary"
+                    text="Зарегистрироваться"
+                    onClick={() => console.log("Данные успешно отправлены")}
+                />
+
         </form>
     )
 };
